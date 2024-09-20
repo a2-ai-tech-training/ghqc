@@ -44,5 +44,7 @@ Imports:
     usethis (>= 2.2.2),
     gitcreds (>= 0.1.2)
 Suggests: 
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    httptest (>= 4.2.2),
+    shinytest(>= 0.3.2)
 Config/testthat/edition: 3

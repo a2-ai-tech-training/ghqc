@@ -1,7 +1,12 @@
+#' ghqc_create_app
+#' found in app_01_create.R
+#'
+#' @return NA
+#'
 #' @import shiny
-NULL
-
 #' @export
+#'
+#' @examples ghqc_create_app()
 ghqc_create_app <- function() {
   app <- shinyApp(
     ui = ghqc_create_ui(

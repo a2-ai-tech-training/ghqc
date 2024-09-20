@@ -1,7 +1,12 @@
+#' ghqc_report_app
+#' found in app_03_report.R
+#'
+#' @return NA
 #' @import shiny
-NULL
-
+#'
 #' @export
+#'
+#' @examples ghqc_report_app()
 ghqc_report_app <- function() {
   app <- shinyApp(
     ui = ghqc_report_ui(

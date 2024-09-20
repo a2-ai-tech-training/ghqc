@@ -1,4 +1,12 @@
+#' get_checklists
+#'
+#' read in checklists
+#' found in create_yaml
+#'
+#' @return checklists_data
 #' @export
+#'
+#' @examples checklists_data <- get_checklists()
 get_checklists <- function() {
   #checklists_path <- system.file("checklists", package = "ghqc")
   checklists_path <- file.path(.lci$client_repo_path, "checklists")

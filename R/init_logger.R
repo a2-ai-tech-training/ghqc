@@ -31,7 +31,16 @@ my_layout <- function(level, ...) {
   paste0(format(Sys.time()), " [", level, "] ", ..., "\n", collapse = "")
 }
 
+
+#' ghqc_toggle_logger
+#'
+#' toggles amount of logging displayed to console
+#' found in init_logger.R
+#'
+#' @return NA
 #' @export
+#'
+#' @examples ghqc_toggle_logger()
 ghqc_toggle_logger <- function() {
   verbosity <- Sys.getenv("GHQC_VERBOSE")
 

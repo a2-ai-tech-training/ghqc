@@ -1,7 +1,12 @@
+#' ghqc_update_app
+#' found in app_02_update.R
+#'
+#' @return NA
 #' @import shiny
-NULL
-
+#'
 #' @export
+#'
+#' @examples ghqc_update_app()
 ghqc_update_app <- function() {
   app <- shinyApp(
     ui = ghqc_update_ui(

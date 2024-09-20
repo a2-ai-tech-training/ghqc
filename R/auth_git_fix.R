@@ -106,8 +106,17 @@ get_url <- function() {
 }
 
 
+
+#' ghqc_authenticate
+#'
+#' found in auth_git_fix.R
+#'
+#' @return NA
+#'
 #' @import log4r
 #' @export
+#'
+#' @examples ghqc_authenticate()
 ghqc_authenticate <- function() {
   url <- get_url()
 

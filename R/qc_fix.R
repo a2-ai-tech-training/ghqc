@@ -58,7 +58,22 @@ create_diff_body <- function(diff, reference_commit, reference_script, comparato
   }
 }
 
+#' create_comment_body
+#'
+#' found in qc_fix.R
+#'
+#' @param owner owner of repo
+#' @param repo repo owner
+#' @param issue_number gh issue number
+#' @param message message to be added to comment body (default NULL)
+#' @param diff boolean if difference wanted in body or not (default FALSE)
+#' @param reference_commit commit to be referenced against (default "original")
+#' @param comparator_commit commit to be compared (default "current")
+#'
+#' @return character string of the comment's body
 #' @export
+#'
+#' @examples comment_body <- create_comment_body(owner, repo, issue_number)
 create_comment_body <- function(owner,
                                 repo,
                                 issue_number,
@@ -117,7 +132,19 @@ create_comment_body <- function(owner,
   as.character(comment_body)
 }
 
+#' post_comment
+#'
+#' found in qc_fix.R
+#'
+#' @param owner owner of repo
+#' @param repo repo name
+#' @param issue_number gh issue number
+#' @param body body content to be posted into GH
+#'
+#' @return comment posted to gh
 #' @export
+#'
+#' @examples comment <- post_comment(owner, repo, issue_number, body)
 post_comment <- function(owner, repo, issue_number, body) {
   debug(.le$logger, glue::glue("Posting comment to issue #{issue_number} in {owner}/{repo}..."))
 

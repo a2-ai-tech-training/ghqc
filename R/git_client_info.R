@@ -89,8 +89,17 @@ remote_repo_updates <- function(client_repo_path) {
   return(remote_repo_updates)
 }
 
+
+#' load_client_info
+#'
+#' found in git_client_info.R
+#'
+#' @return path which client info was cloned to
+#'
 #' @import log4r
 #' @export
+#'
+#' @examples client_repo_path <- load_client_info()
 load_client_info <- function(){
   if (file.exists("~/.Renviron")) readRenviron("~/.Renviron")
 

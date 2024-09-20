@@ -86,8 +86,19 @@ get_env_url <- function() {
 }
 
 
+
+#' get_gh_url
+#'
+#' found in auth_git.R
+#'
+#' @param remote_url
+#'
+#' @return env_url the environement url which has been checked to that it matches the remote
+#'
 #' @import log4r
 #' @export
+#'
+#' @examples env_url <- get_gh_url(remote_url)
 get_gh_url <- function(remote_url) {
   env_url <- get_env_url()
 
@@ -104,8 +115,19 @@ check_remote_matches_env_url <- function(remote_url, env_url) {
   }
 }
 
+
+#' get_gh_api_url
+#'
+#' found in auth_git.R
+#'
+#' @param remote_url url for remote repo
+#'
+#' @return configured api url
+#'
 #' @import log4r
 #' @export
+#'
+#' @examples gh_api_url <- get_gh_api_url(remote_url)
 get_gh_api_url <- function(remote_url) {
   gh_url <- tryCatch(
     {
@@ -121,8 +143,17 @@ get_gh_api_url <- function(remote_url) {
   res
 }
 
+
+#' get_gh_token
+#'
+#' found in auth_git.R
+#'
+#' @return gh PAT as set in .Renviroon
+#'
 #' @import log4r
 #' @export
+#'
+#' @examples gh_pat <- get_gh_token()
 get_gh_token <- function() {
   res <- Sys.getenv("GHQC_GITHUB_PAT")
   if (!nzchar(res)) {
@@ -134,8 +165,20 @@ get_gh_token <- function() {
   res
 }
 
+
+#' check_github_credentials
+#'
+#' Perform checks to ensure github credentials are valid
+#' found in auth_git.R
+#'
+#' @param remote
+#'
+#' @return remote
+#'
 #' @import log4r
 #' @export
+#'
+#' @examples remote <- check_github_credentials(remote)
 check_github_credentials <- function(remote) {
   if (file.exists("~/.Renviron")) readRenviron("~/.Renviron")
 

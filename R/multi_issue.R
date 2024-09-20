@@ -1,8 +1,19 @@
-# create an issue for each file given in a yaml file
-# - organize issues associated with a set of files with milestones
-# - assign a different user to each issue for a given file
-
+#' create_issue
+#'
+#' create an issue for each file given in a yaml file
+#' - organize issues associated with a set of files with milestones
+#' - assign a different user to each issue for a given file
+#' found in multi_issue.R
+#'
+#'
+#' @param file file to be QCed
+#' @param issue_params parameters for the issue to be created
+#'
+#' @return list with issue number and assignee
 #' @export
+#'
+#' @examples issue <- create_issue(file, issue_params)
+#'
 create_issue <- function(file, issue_params) {
   # issue title is the name of the file
   issue_params$title <- file$name
@@ -24,10 +35,21 @@ create_issue <- function(file, issue_params) {
   list(number = issue$number, assignees = issue_params$assignees)
 } # create_issue
 
+
+#' create_issues
+#'
+#' create list of issue_params to input to api call
+#' found in multi_issue.R
+#'
+#' @param data list containing params such as owner, repo, title, description
+#'
+#' @return list of issues created by create_issue()
+#'
 #' @import log4r
 #' @export
+#'
+#' @examples issue_params <- create_issues(data)
 create_issues <- function(data) {
-  # create list of issue_params to input to api call -
   # will build up in pieces because some are optional
   issue_params <- list(
     owner = data$owner,
@@ -73,10 +95,19 @@ create_issues <- function(data) {
   info(.le$logger, glue::glue("Created checklist(s) for file(s): {file_names}"))
 } # create_issues
 
-
-# test with "test_yamls/checklist.yaml"
+#' create_checklists
+#'
+#' test with "test_yamls/checklist.yaml"
+#' found in multi_issue.R
+#'
+#' @param yaml_path path to yaml. Typically within dependent information repo/package
+#'
+#' @return list of issues created by create_issues()
+#'
 #' @import log4r
 #' @export
+#'
+#' @examples create_checklists(yaml_path)
 create_checklists <- function(yaml_path) {
   data <- read_and_validate_yaml(yaml_path)
   create_issues(data)

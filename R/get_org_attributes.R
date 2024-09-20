@@ -81,8 +81,20 @@ get_closed_milestone_names <- function(org, repo) {
   })
 }
 
+
+#' list_milestones
+#'
+#' found in get_org_attributes.R
+#'
+#' @param org organization repo lives in
+#' @param repo repo name
+#'
+#' @return list of milestones
+#'
 #' @import log4r
 #' @export
+#'
+#' @examples list_of_milstones <- list_milestones(org, repo)
 list_milestones <- function(org, repo) {
   debug(.le$logger, glue::glue("Retrieving milestones in organization {org}, repo {repo}..."))
   milestones <- get_all_milestone_objects(org, repo)
@@ -115,8 +127,19 @@ get_remote_url <- function(remote) {
   return(api_url)
 }
 
+
+#' get_remote
+#'
+#' found in get_org_attributes.R
+#'
+#' @param remote_list list of remotes
+#'
+#' @return remote
+#'
 #' @import log4r
 #' @export
+#'
+#' @examples remote <- get_remote(remote_list)
 get_remote <- function(remote_list) {
 
   debug(.le$logger, glue::glue("Retrieving local repo path..."))
@@ -183,8 +206,19 @@ get_remote <- function(remote_list) {
   return(remote)
 }
 
+
+#' get_current_repo
+#'
+#' found in get_org_attributes.R
+#'
+#' @param remote typically result of get_remote()
+#'
+#' @return current remote
+#'
 #' @import log4r
 #' @export
+#'
+#' @examples current_remote <- get_current_remote(get_remote())
 get_current_repo <- function(remote = get_remote()) {
   tryCatch({
   debug(.le$logger, glue::glue("Connecting to repository..."))

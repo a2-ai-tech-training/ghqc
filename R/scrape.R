@@ -472,8 +472,22 @@ check_milestones <- function(milestone_names, owner, repo) {
   })
 }
 
+
+#' ghqc_report
+#'
+#' @param milestone_names names of milestones (default NULL)
+#' @param input_name name of pdf to be saved (default NULL to set with normal convention)
+#' @param just_tables boolean to have report be only tables (default FALSE)
+#' @param location location to save pdf (default to "." for current directory)
+#' @param owner owner of repo (default to get_organization())
+#' @param repo repo name (default to get_current_repo())
+#'
+#' @return NA
+#'
 #' @export
 #' @import log4r
+#'
+#' @examples ghqc_report()
 ghqc_report <- function(milestone_names = NULL,
                         input_name = NULL,
                         just_tables = FALSE,

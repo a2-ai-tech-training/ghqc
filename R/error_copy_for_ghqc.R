@@ -1,4 +1,13 @@
+#' check_if_qc_file_untracked
+#'
+#' found in error_copy_for_ghqc.R
+#'
+#' @param qc_file_path path to qc file to be checked for tracking
+#'
+#' @return boolean if qc file is untracked
 #' @export
+#'
+#' @examples untracked_file <- check_if_qc_file_untracked(qc_file_path)
 check_if_qc_file_untracked <- function(qc_file_path) {
   status <- processx::run("git", c("status", "-u"))$stdout
   lines <- strsplit(status, "\n")[[1]]
